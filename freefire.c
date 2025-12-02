@@ -52,10 +52,11 @@ int exibirMenu(){
           scanf("%s", listaDeItens[contadorItens].tipo);
           printf("Quantidade:");
           scanf("%d", &listaDeItens[contadorItens].quantidade);
+          printf("Item \"%s\" inserido com sucesso!\n",listaDeItens[contadorItens].nome);
           printf("\n");
           
           contadorItens++;
-          printf("Item \"%s\" inserido com sucesso!\n",listaDeItens[contadorItens].nome);//nesse ponto ele não imprime o dado do usuario, imprime somente o "".
+          
           printf("\n");
           
 
@@ -76,36 +77,35 @@ int exibirMenu(){
        
           
 }       
- //Função para remover itens nao estou conseguindo. Ele exclui como pilha. Nao consigo resolver.
-/*
+//Função para remover itens nao estou conseguindo. Ele exclui como pilha. Nao consigo resolver.
 
 void removerItem() {
      if(contadorItens <= TAM_MAX){
           printf("---Remover Item---\n");
           printf("Qual item deseja remover?");
           scanf("%s",listaDeItens[contadorItens].nome); 
-         
+          printf("Item \"%s\" removido com sucesso!\n",listaDeItens[contadorItens].nome);
           printf("\n");
           
           contadorItens--;
-          printf("Item \"%s\" removido com sucesso!\n",listaDeItens[contadorItens].nome);
+          
           printf("\n");
            }else {
         printf("Lista já esta vazia.\n");
        }
         //listar os itens na inserção de itens pelo usuario
-        
+          
           printf("====ITENS NA MOCHILA=====(%d/10)\n",contadorItens);
           printf("-----------------------------------------------\n");
           printf("Nome          | Tipo       | Quantidade\n");
           printf("----------------------------------------------\n");
-          
-          for(int i = 0; i > contadorItens -1; i++){
-          printf("%s\n", listaDeItens[contadorItens].nome);
-        }
+          for(int i = 0; i < contadorItens; i++){
+           printf("%s            | %s         | %d\n",
+        listaDeItens[i].nome, listaDeItens[i].tipo, listaDeItens[i].quantidade);
+        
     }
+}
  
- */
 
     //Função para listar itens
 
@@ -120,7 +120,7 @@ void listarItens() {
             printf("----------------------------------------------\n");
     
             for(int i = 0; i < contadorItens; i++){
-            printf("%s          | %s             | %d\n",
+            printf("%s            | %s         | %d\n",
         listaDeItens[i].nome, listaDeItens[i].tipo, listaDeItens[i].quantidade);
         }
     }
@@ -139,9 +139,9 @@ void listarItens() {
               inserirItem();
               
               break;
-        // case 2:
-             // removerItem();
-             // break;
+         case 2:
+              removerItem();
+              break;
           case 3:
               listarItens();
               break;
@@ -161,6 +161,7 @@ void listarItens() {
     
 return 0;
 };
+
 
 
      
